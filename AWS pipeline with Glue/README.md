@@ -87,7 +87,7 @@ The naming conventions for paths is influenced by lots of factors.
 AWS Glue is primarily an ETL (Extract, Transform, Load)/ELT service that also provides a metadata repository known as the AWS Glue Data Catalog. The Glue Data Catalog stores metadata about your data stored in AWS. When you define a crawler in AWS Glue and point it to your data stored in S3, the crawler reads the data, infers a schema, and creates a table definition in the Data Catalog.
 AWS Glue's role is to discover, catalog, and manage metadata about data, including its schema and partitions. This schema is stored in the AWS Glue Data Catalog.
 
-![alt text](GlueOverview.png)
+![alt text](GlueOverview.PNG)
 
 **AWS Athena**
 
@@ -95,7 +95,7 @@ When user runs the query, AWS Athena uses the schema information from the AWS Gl
 
 AWS Athena is partition aware, meaning if the data in S3 is partitioned and those partitions are cataloged in AWS Glue, Athena can perform partition pruning to efficiently query only the relevant slices of your data. This significantly speeds up query times and reduces costs by scanning less data.
 
-![alt text](AthenaOverview.png)
+![alt text](AthenaOverview.PNG)
 
 **Partitioning**
 
