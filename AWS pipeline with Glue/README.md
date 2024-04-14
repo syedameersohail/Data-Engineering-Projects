@@ -34,7 +34,7 @@ The data is pulled from S3 bucket periodically, I have setup a crawler that does
 
 **AWS QuickSight :** Used to create a dashboard, the BI tool seemed to be okay but there are still lots of features I found missing like say I wanted to create a triage based color formatting this is not straightforward and it was not achieveable I believe and rest basic functionality was good. 
 
-![alt text](Architecture.PNG)
+![alt text](Architecture.png)
 
 <a id="item-four"></a>
 
