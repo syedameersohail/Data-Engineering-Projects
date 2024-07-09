@@ -1,0 +1,53 @@
+https://stackoverflow.com/questions/35603183/aws-connecting-to-postgres-not-working
+sudo yum install postgresql15.x86_64 python3-psycopg2.x86_64
+
+
+https://stackoverflow.com/questions/51014647/aws-postgres-db-does-not-exist-when-connecting-with-pg
+psql -h hostname -U username -d databasename=> instance name should be used instead of the database created so postgres
+
+
+https://stackoverflow.com/questions/44855531/no-module-named-psycopg2-psycopg-modulenotfounderror-in-aws-lambda
+https://github.com/jetbridge/psycopg2-lambda-layer
+
+
+https://stackoverflow.com/questions/67757459/how-to-update-multiple-lambda-functions-from-python-2-7-to-3-6
+
+
+{
+  "statusCode": 204,
+  "body": "\"No news data to process.\"",
+  "news_data": "{\"error\": {\"code\": \"https_access_restricted\", \"message\": \"Access Restricted - Your current Subscription Plan does not support HTTPS Encryption.\"}}"
+}
+
+http request only supported for free plan, change code to use htttp connection over https
+
+
+{
+  "statusCode": 500,
+  "body": "\"Failed to insert data due to error: value too long for type character varying(255)\\n\""
+}
+
+SSH error using VS Code locally
+https://stackoverflow.com/questions/60335069/vscode-remote-connection-error-the-process-tried-to-write-to-a-nonexistent-pipe
+
+
+
+resources:
+lambda developer guide
+https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+
+Linux command cheatsheet
+https://gist.github.com/miranda-zhang/c580cc45bed3317501a6071726d929c0       
+
+
+https://github.com/open-guides/og-aws
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.CreateVPCDualStack.html
+
+
+
+
+
+
+
+
+
