@@ -77,4 +77,5 @@ please refere to issue_log txt file for reading links.
 
 ## Future Works
 Trigger-based EC2 Activation: Modify the system to trigger the EC2 instance simultaneously with the Lambda function for more synchronized data updates.
+
 Machine Learning Integration: Plan to utilize the stored data for NLP tasks, adding predictive analytics to the platform.
