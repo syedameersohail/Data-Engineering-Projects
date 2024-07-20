@@ -27,9 +27,12 @@ This project is a data engineering solution built on AWS, utilizing the MediaSta
 <a id="item-two"></a>
 
 ## Services
-**AWS Services:** Lambda, RDS (PostgreSQL), EventBridge, EC2, Cloudwatch. 
+**AWS Services:** Lambda, RDS (PostgreSQL), EventBridge, EC2, Cloudwatch.
+
 **Programming:** Python.
+
 **Libraries:** Streamlit for visualization, pandas for data manipulation.
+
 **APIs:** MediaStack API for news data.
 
 
@@ -37,8 +40,11 @@ This project is a data engineering solution built on AWS, utilizing the MediaSta
 
 ## Services info
 **Lambda Function:** Manages data retrieval and processing logic, including schema validation and row count checks.
+
 **EventBridge:** Triggers the Lambda function at 15-minute intervals.
+
 **RDS (PostgreSQL):** Stores the data with schema constraints and versioning to distinguish between old and new data entries.
+
 **EC2:** Hosts a Streamlit application that provides a user-friendly dashboard to display news data based on categories and refreshes in real-time.
 
 
