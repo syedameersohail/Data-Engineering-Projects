@@ -27,27 +27,22 @@ http request only supported for free plan, change code to use htttp connection o
   "body": "\"Failed to insert data due to error: value too long for type character varying(255)\\n\""
 }
 
-SSH error using VS Code locally
-https://stackoverflow.com/questions/60335069/vscode-remote-connection-error-the-process-tried-to-write-to-a-nonexistent-pipe
-
 
 
 resources:
 lambda developer guide
 https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 
-Linux command cheatsheet
-https://gist.github.com/miranda-zhang/c580cc45bed3317501a6071726d929c0       
-
-
 https://github.com/open-guides/og-aws
+
 https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.CreateVPCDualStack.html
 
 
+#timezone issues
+https://gist.github.com/Soheab/3bec6dd6c1e90962ef46b8545823820d
 
+#streamlit modal usage
+https://discuss.streamlit.io/t/streamlit-popup-window-streamlit-modal/40310
 
-
-
-
-
-
+#streamlit autorefresh
+https://discuss.streamlit.io/t/streamlit-autorefresh/14519

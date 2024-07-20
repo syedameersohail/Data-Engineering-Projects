@@ -7,9 +7,8 @@ import os
 from utils.schemas import NEWS_TABLE_SCHEMA
 from utils.functions import validated_data
 
+
 def lambda_handler(event, context):
-    META_DATA_INFO = ['author', 'title', 'description', 'url', 'source', 'category', 'published_at', 'country']
-    
     # Database connection
     try:
         db_conn = psycopg2.connect(
@@ -28,7 +27,7 @@ def lambda_handler(event, context):
             'body': json.dumps(error_msg)
         }
     
-
+    
     date_today = datetime.today().strftime('%Y-%m-%d')
     params = urllib.parse.urlencode({
         'access_key': os.environ['API_ACCESS_KEY'],
@@ -40,7 +39,7 @@ def lambda_handler(event, context):
         'limit': 100,
     })
     
-
+    
     conn = http.client.HTTPConnection('api.mediastack.com')
     conn.request('GET', '/v1/news?' + params)
     res = conn.getresponse()
@@ -48,7 +47,7 @@ def lambda_handler(event, context):
     news_data = json.loads(data.decode('utf-8'))
     conn.close()
     
-    # Check for data presence, row count expectation
+    # Check for data presence row count expectation check
     if 'data' not in news_data:
         return {
             
@@ -57,23 +56,28 @@ def lambda_handler(event, context):
             'news_data':json.dumps(news_data)
         }
     
-    # Data insertion into the database
+   # Data insertion into the database
     try:
         for item in news_data['data']:
-            validated_data_list = validated_data(item, NEWS_TABLE_SCHEMA)  # schema validation
-            if not validated_data_list:
+            
+            # check and compare with old records, if old records set to False
+            cursor.execute("""
+                UPDATE news_articles
+                SET is_latest = FALSE
+                WHERE url = %s AND is_latest = TRUE;
+            """, (item['url'],))
+            
+            validated_data_dict = validated_data(item, NEWS_TABLE_SCHEMA) # do validation with schema
+            if not validated_data_dict:
                 print("Data validation failed.")
                 continue  # Skip insertion if data is not valid
-            placeholders = ', '.join(['%s'] * len(META_DATA_INFO))
-            columns = ', '.join(META_DATA_INFO)
+            
+            columns = ', '.join(validated_data_dict.keys())
+            placeholders = ', '.join(['%s'] * len(validated_data_dict))
+            values = tuple(validated_data_dict[key] for key in validated_data_dict.keys())
             sql = f"INSERT INTO news_articles ({columns}) VALUES ({placeholders})"
-            cursor.execute(sql, tuple(validated_data_list))
+            cursor.execute(sql, values)  
         db_conn.commit()
-        
-        return {
-            'statusCode': 200,
-            'body': json.dumps('Data retrieved and stored successfully')
-        }
 
     except (ValueError, TypeError) as e:
         error_msg = f"Data validation error: {e}"
@@ -90,3 +94,4 @@ def lambda_handler(event, context):
     finally:
         cursor.close()
         db_conn.close()
+        
